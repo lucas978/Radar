@@ -3,8 +3,13 @@
 from graphics import *
 from time import sleep
 
+def ponto(x,y,z=0,color="black"):
+	pt = Point(x,y)
+	pt.setFill(color)
+
+
 # reta octeto bressham
-def reta(x1,x2,y1,y2,window):
+def reta(x1,x2,y1,y2,window,cor):
 	x = x1
 	y = y1
 	c = 1
@@ -24,6 +29,7 @@ def reta(x1,x2,y1,y2,window):
 		p = d_x / 2
 		while x != x2:
 			pt = Point(x,y)
+			pt.setOutline(cor)
 			pt.draw(window)
 			p = p - d_y
 			if p < 0:
@@ -34,6 +40,7 @@ def reta(x1,x2,y1,y2,window):
 		p = d_y / 2
 		while y != y2:
 			pt = Point(x,y)
+			pt.setOutline(cor)
 			pt.draw(window)
 			p = p - d_x
 			if p < 0:
@@ -41,6 +48,7 @@ def reta(x1,x2,y1,y2,window):
 				p = p + d_y
 			y = y + incy
 		pt = Point(x,y)
+		pt.setOutline(cor)
 		pt.draw(window)
 
 def aviao(x1,x2,x3,y1,y2,y3,win):
@@ -73,6 +81,7 @@ def animacao(win):
     		for y in [-5, 5]:
         		pt = Point(250,250)
 			pt.draw(win)
+			pt.setOutline("red")
 			points.append(pt)		
 
 	for _ in range(250):
@@ -100,11 +109,10 @@ def move(win):
 
 def main():
 	win = GraphWin("GG",500,500)
-	win.setBackground(color_rgb(255,255,255))
-	#reta(0,500,400,400,win)
-	#animacao(win)	
-	#aviao(85,70,100,75,100,100,win)
-	move(win)
+	win.setBackground(color_rgb(0,0,0))
+	reta(250,250,0,500,win,"green")
+	reta(0,500,250,250,win,"green")
+	
 	win.getMouse()
 	win.close()
 
