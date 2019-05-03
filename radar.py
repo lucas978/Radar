@@ -51,6 +51,31 @@ def reta(x1,x2,y1,y2,window,cor):
 		pt.setOutline(cor)
 		pt.draw(window)
 
+
+
+def plotagem_circulo(x, y, color):
+  ponto(x, y, color)
+  ponto(y, x, color)
+  ponto(y, -x, color)
+  ponto(-x, y, color)
+  ponto(-x, -y, color)
+  ponto(-y, -x, color)
+  ponto(-y, x, color)
+  ponto(x, -y, color)
+
+def circulo(x, y, p, color):
+   plotagem_circulo(x, y, color)
+   while x < y:
+       x = x + 1
+       if p < 0:
+           p = p + (2 * x) + 1
+       else:
+           y = y - 1
+           p = p + (2 * x) + 1 - (2 * y)
+       plotagem_circulo(x, y, color)
+
+
+
 def aviao(x1,x2,x3,y1,y2,y3,win):
 	# x2, y2 = ponto O -> origem do desenho(asa esquerda do aviao)
 	# x1, y1 = ponto A -> ponta do Desenho(bico do aviao)
@@ -89,7 +114,7 @@ def animacao(win):
         		pt.move(x,y)
 			sleep(0.025)
 
-
+'''
 def move(win):
 # PODE SER USADA PARA O PREENCHIMENTO!!
 # ta funcionando a animacao, no entanto,  ele vai deixando um rasto
@@ -104,15 +129,21 @@ def move(win):
 		y += 1
 		win.plot(x, y, "blue")
 		sleep(0.025)	
+'''
+
+def cruz(win):
+	reta(500,500,0,1000,win,"green")
+        reta(0,1000,500,500,win,"green")
 
 
 
 def main():
-	win = GraphWin("GG",500,500)
+	# Configurando Window
+	win = GraphWin("GG",1000,1000)
 	win.setBackground(color_rgb(0,0,0))
-	reta(250,250,0,500,win,"green")
-	reta(0,500,250,250,win,"green")
-	
+	# Desenhando cruz
+	cruz(win)	
+	# Fechando Janela/Radar
 	win.getMouse()
 	win.close()
 
