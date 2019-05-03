@@ -3,6 +3,7 @@
 from graphics import *
 from time import sleep
 
+
 def ponto(x,y,z=0,color="black"):
 	pt = Point(x,y)
 	pt.setFill(color)
@@ -75,24 +76,13 @@ def circulo(x, y, p, color):
        plotagem_circulo(x, y, color)
 
 
-
-def aviao(x1,x2,x3,y1,y2,y3,win):
-	# x2, y2 = ponto O -> origem do desenho(asa esquerda do aviao)
-	# x1, y1 = ponto A -> ponta do Desenho(bico do aviao)
-	# x3, x3 = Ponto B -> Asa do aviao(direita)
-	#              A (x1,y1)
-	#	      / \
-	#    (x2,y2) O___B (x3,y3)
-	#
-	# parametros para -> reta(x1,x2,y1,y2,window)
-	#			 x2 > x1 && y2 > y1
-	# Reta OA
-	reta(x2,x1,y2,y1,win)
-	# Reta AB
-	reta(x1,x3,y1,y3,win)
-	# Reta BO
-	reta(x3,x2,y3,y2,win)
-	
+def aviao(x,x2,x3,y,y2,y3,win,cor):
+	#reta OA
+	reta(x,x2,y,y2,win,cor)
+	#reta AB
+	reta(x2,x3,y2,y3,win,cor)
+	#reta BO
+	reta(x3,x,y3,y,win,cor)
 
 
 
@@ -143,9 +133,12 @@ def main():
 	win.setBackground(color_rgb(0,0,0))
 	# Desenhando cruz
 	cruz(win)	
+	aviao(145,140,150,160,130,130,win,"red")
+
+
 	# Fechando Janela/Radar
 	win.getMouse()
 	win.close()
-
+	
 
 main()
