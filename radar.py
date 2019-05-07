@@ -53,7 +53,6 @@ def reta(x1,x2,y1,y2,window,cor):
 		pt.draw(window)
 
 
-
 def plotagem_circulo(x, y, color):
   ponto(x, y, color)
   ponto(y, x, color)
@@ -76,6 +75,8 @@ def circulo(x, y, p, color):
        plotagem_circulo(x, y, color)
 
 
+
+
 def aviao(x,x2,x3,y,y2,y3,win,cor):
 	#reta OA
 	reta(x,x2,y,y2,win,cor)
@@ -83,7 +84,6 @@ def aviao(x,x2,x3,y,y2,y3,win,cor):
 	reta(x2,x3,y2,y3,win,cor)
 	#reta BO
 	reta(x3,x,y3,y,win,cor)
-
 
 
 def animacao(win):
@@ -133,9 +133,19 @@ def main():
 	win.setBackground(color_rgb(0,0,0))
 	# Desenhando cruz
 	cruz(win)	
-	aviao(145,140,150,160,130,130,win,"red")
-
-
+	circulo(50,50,8,"red")
+	# Aviao
+	# ->
+	aviao(150,140,140,145,140,150,win,"blue")
+	# <-
+	aviao(250,260,260,245,240,250,win,"yellow")
+	# norte
+	aviao(345,340,350,340,350,350,win,"red")
+	# sul
+	aviao(445,440,450,450,440,440,win,"green")	
+	animacao(win)
+	
+		
 	# Fechando Janela/Radar
 	win.getMouse()
 	win.close()
