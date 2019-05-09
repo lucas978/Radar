@@ -75,15 +75,51 @@ def circulo(x, y, p,color,win):
        		plotagem_circulo(x, y, color,win)
 
 
-
-
-def aviao(x,x2,x3,y,y2,y3,win,cor):
-	#reta OA
-	reta(x,x2,y,y2,win,cor)
-	#reta AB
-	reta(x2,x3,y2,y3,win,cor)
-	#reta BO
-	reta(x3,x,y3,y,win,cor)
+def aviao(win):
+	# Criar outro metodo de Ponto() para passar parametros 
+	# P/ os pontos se moverem!!! 
+	# 9
+	ponto(300,301,"red",win)        
+	ponto(300,302,"red",win) 
+        ponto(300,303,"red",win) 
+        ponto(300,304,"red",win) 
+        ponto(300,305,"red",win) 
+	ponto(300,306,"red",win)	
+	ponto(300,307,"red",win) 
+	ponto(300,308,"red",win) 
+	ponto(300,309,"red",win) 
+	# 7
+	ponto(301,302,"red",win)        
+        ponto(301,303,"red",win) 
+        ponto(301,304,"red",win) 
+        ponto(301,305,"red",win) 
+        ponto(301,306,"red",win) 
+	ponto(301,307,"red",win) 
+        ponto(301,308,"red",win) 
+	# 5
+	ponto(302,303,"red",win) 
+	ponto(302,304,"red",win)        
+        ponto(302,305,"red",win) 
+        ponto(302,306,"red",win) 
+        ponto(302,307,"red",win) 
+	# 3
+	ponto(303,304,"red",win)        
+        ponto(303,305,"red",win) 
+        ponto(303,306,"red",win) 
+	# 1
+	ponto(304,305,"red",win)        
+	# 1
+	ponto(304,305,"red",win)
+	# 1
+	ponto(304,305,"red",win)
+	ponto(304,305,"red",win)
+	ponto(304,305,"red",win)
+	ponto(304,305,"red",win)
+	ponto(304,305,"red",win)
+	ponto(304,305,"red",win)
+	ponto(304,305,"red",win)
+	ponto(304,305,"red",win)
+	ponto(304,305,"red",win)	        
 
 
 def animacao(win):
@@ -121,7 +157,7 @@ def move(win):
 		sleep(0.025)	
 '''
 
-def cruz(win):
+def desenhar_linhas(win):
 	#vertical
 	reta(0,0,-500,500,win,"green")
 	#horizontal
@@ -131,23 +167,23 @@ def cruz(win):
 	#diagonal(direita | esquerda)
 	reta(500,-500,-500,500,win,"green")
 
+def desenhar_circulo(win):
+	circulo(0,450,449,color_rgb(0,128,0),win)
+        circulo(0,50,49,color_rgb(0,128,0),win)
+        circulo(0,200,199,color_rgb(0,128,0),win)
+        circulo(0,330,329,color_rgb(0,128,0),win)
+
 
 def main():
 	# Configurando Window
 	win = GraphWin("",1000,1000)
 	win.setCoords(-500,-500,500,500)
 	win.setBackground(color_rgb(0,0,0))
-	# Desenhando cruz
-	cruz(win)	
-	circulo(0,450,449,color_rgb(0,128,0),win)
-	circulo(0,50,49,color_rgb(0,128,0),win)
-	circulo(0,200,199,color_rgb(0,128,0),win)
-	circulo(0,330,329,color_rgb(0,128,0),win)
-
-
-
-
+	# Desenhando  linhas e circulos
+	desenhar_linhas(win)
+	desenhar_circulo(win)
 	# Aviao
+	aviao(win)
 	# Fechando Janela/Radar
 	win.getMouse()
 	win.close()
