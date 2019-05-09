@@ -4,10 +4,10 @@ from graphics import *
 from time import sleep
 
 
-def ponto(x,y,z=0,color="black"):
+def ponto(x,y,color,win):
 	pt = Point(x,y)
-	pt.setFill(color)
-
+	pt.setOutline(color)
+	pt.draw(win)
 
 # reta octeto bressham
 def reta(x1,x2,y1,y2,window,cor):
@@ -53,26 +53,26 @@ def reta(x1,x2,y1,y2,window,cor):
 		pt.draw(window)
 
 
-def plotagem_circulo(x, y, color):
-  ponto(x, y, color)
-  ponto(y, x, color)
-  ponto(y, -x, color)
-  ponto(-x, y, color)
-  ponto(-x, -y, color)
-  ponto(-y, -x, color)
-  ponto(-y, x, color)
-  ponto(x, -y, color)
+def plotagem_circulo(x, y, color,win):
+ 	ponto(x, y, color, win)
+ 	ponto(y, x, color, win)
+ 	ponto(y, -x, color, win)
+ 	ponto(-x, y, color, win)
+ 	ponto(-x, -y, color, win)
+ 	ponto(-y, -x, color, win)
+ 	ponto(-y, x, color, win)
+ 	ponto(x, -y, color, win)
 
-def circulo(x, y, p, color):
-   plotagem_circulo(x, y, color)
-   while x < y:
-       x = x + 1
-       if p < 0:
-           p = p + (2 * x) + 1
-       else:
-           y = y - 1
-           p = p + (2 * x) + 1 - (2 * y)
-       plotagem_circulo(x, y, color)
+def circulo(x, y, p,color,win):
+	plotagem_circulo(x, y, color,win)
+	while x < y:
+       		x = x + 1
+       		if p < 0:
+           		p = p + (2 * x) + 1
+       		else:
+           		y = y - 1
+           		p = p + (2 * x) + 1 - (2 * y)
+       		plotagem_circulo(x, y, color,win)
 
 
 
@@ -122,30 +122,32 @@ def move(win):
 '''
 
 def cruz(win):
-	reta(500,500,0,1000,win,"green")
-        reta(0,1000,500,500,win,"green")
-
+	#vertical
+	reta(0,0,-500,500,win,"green")
+	#horizontal
+	reta(-500,500,0,0,win,"green")
+	#diagonal(esquerda | direita)
+	reta(-500,500,-500,500,win,"green")
+	#diagonal(direita | esquerda)
+	reta(500,-500,-500,500,win,"green")
 
 
 def main():
 	# Configurando Window
-	win = GraphWin("GG",1000,1000)
+	win = GraphWin("",1000,1000)
+	win.setCoords(-500,-500,500,500)
 	win.setBackground(color_rgb(0,0,0))
 	# Desenhando cruz
 	cruz(win)	
-	circulo(50,50,8,"red")
+	circulo(0,450,449,color_rgb(0,128,0),win)
+	circulo(0,50,49,color_rgb(0,128,0),win)
+	circulo(0,200,199,color_rgb(0,128,0),win)
+	circulo(0,330,329,color_rgb(0,128,0),win)
+
+
+
+
 	# Aviao
-	# ->
-	aviao(150,140,140,145,140,150,win,"blue")
-	# <-
-	aviao(250,260,260,245,240,250,win,"yellow")
-	# norte
-	aviao(345,340,350,340,350,350,win,"red")
-	# sul
-	aviao(445,440,450,450,440,440,win,"green")	
-	animacao(win)
-	
-		
 	# Fechando Janela/Radar
 	win.getMouse()
 	win.close()
