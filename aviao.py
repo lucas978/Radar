@@ -22,9 +22,9 @@ class aviao:
         self.voo = voo
         self.distancia = distancia
         self.velocidade = velocidade
-        self.x = x;
-        self.y = y;
-        self.z = z;
+        self.x = x
+        self.y = y
+        self.z = z
         #self.cor = cor(status)
 
     def getTemporizador(self):

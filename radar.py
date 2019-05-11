@@ -79,6 +79,16 @@ def circulo(x, y, p, color, win):
         plotagem_circulo(x, y, color, win)
 
 
+def triangulo_isosceles(x, y, cor, win):
+    tamanho = 10
+
+    reta(x, x+tamanho, y, y, win, cor)
+    reta(x+tamanho, x+tamanho, y-7.5, y+7.5, win, cor)
+    reta(x, x+tamanho, y, y-7.5, win, cor)
+    reta(x, x+tamanho, y, y+7.5, win, cor)
+    
+
+''' Comentado por Vinicius 11/05/19
 def aviao(win):
     # Criar outro metodo de Ponto() para passar parametros
     # P/ os pontos se moverem!!!
@@ -124,7 +134,7 @@ def aviao(win):
     ponto(304, 305, "red", win)
     ponto(304, 305, "red", win)
     ponto(304, 305, "red", win)
-
+'''
 
 def animacao(win):
     points = []
@@ -189,9 +199,24 @@ def main():
     # Desenhando  linhas e circulos
     desenhar_linhas(win)
     desenhar_circulo(win)
-    # Aviao
-    aviao(win)
-    aviao(win)
+
+    #Vinicius - chamadas dos aviões
+
+    ''' Vinicius - Teste para mover o avião. Favor não mexer.
+    for i in range(0, 100):
+        triangulo_isosceles(10+i, 100, "blue", win)
+        time.sleep(0.0000000000000000001)
+        #triangulo_isosceles(10 + i, 100, "black", win)
+    '''
+
+    #triangulo_isosceles(100, 200, "blue", win)
+    #triangulo_isosceles(400, 300, "blue", win)
+    #triangulo_isosceles(300, 250, "blue", win)
+
+    # Aviao Masashi
+    #aviao(win)
+    #aviao(win)
+
     # Fechando Janela/Radar
     win.getMouse()
     win.close()
