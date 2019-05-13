@@ -4,12 +4,52 @@ from graphics import *
 from time import sleep
 
 #from aviao import aviao#nome da classe
-
-
 def ponto(x, y, color, win):
     pt = Point(x, y)
     pt.setOutline(color)
     pt.draw(win)
+
+#EM TESTE, Verificar como funciona a função pt.move() no codigo fonte da biblioteca graphics
+def move_ponto(x,x2,y,y2,cor,win):
+    pt = Point(x,y)
+    pt.setOutline(cor)
+    pt.draw(win)
+    sleep(1)
+    pt.move(x2,y2)
+ # https://github.com/kidGodzilla/graphics.py/blob/master/graphics.py
+#testar movimento do ponto
+'''
+def move_ponto(x, y, x_final, y_final, cor, win):
+    pontos = []
+    for x in [-1,1]:
+        for y in [1,-1]:
+            pt = Point(x,y)
+            pt.draw(win)
+            pt.setOutline(cor)
+            pontos.append(pt)
+    for _ in range(x, x_final):
+        for pt in pontos:
+            pt.move(x, y)
+            sleep(0.025)
+'''
+def animacao(win):
+    points = []
+    # padrao  x -> [-1, 1]
+    # padrao  y -> [-1, 1]
+    # padrao desce!
+    # se inverter o padrao, a bolinha sobe na direcao oposta
+    for x in [-5, 5]:
+        for y in [-5, 5]:
+            pt = Point(250, 250)
+            pt.draw(win)
+            pt.setOutline("red")
+            points.append(pt)
+
+    for _ in range(250):
+        for pt in points:
+            pt.move(x, y)
+            sleep(0.025)
+
 
 
 # reta octeto bressham
@@ -86,25 +126,6 @@ def triangulo_isosceles(x, y, cor, win):
     reta(x+tamanho, x+tamanho, y-7.5, y+7.5, win, cor)
     reta(x, x+tamanho, y, y-7.5, win, cor)
     reta(x, x+tamanho, y, y+7.5, win, cor)
-
-
-def animacao(win):
-    points = []
-    # padrao  x -> [-1, 1]
-    # padrao  y -> [-1, 1]
-    # padrao desce!
-    # se inverter o padrao, a bolinha sobe na direcao oposta
-    for x in [-5, 5]:
-        for y in [-5, 5]:
-            pt = Point(250, 250)
-            pt.draw(win)
-            pt.setOutline("red")
-            points.append(pt)
-
-    for _ in range(250):
-        for pt in points:
-            pt.move(x, y)
-            sleep(0.025)
 
 
 '''
@@ -189,3 +210,20 @@ def desenhar_circulo(win):
         ponto(304, 305, "red", win)
         ponto(304, 305, "red", win)
     '''
+
+    def aviao(x, y, cor, win):
+        # 1 - 9
+        for _ in range(1, 10):
+            ponto(x, y + _, cor, win)
+        # 2 - 8
+        for _ in range(2, 9):
+            ponto(x + 1 + 1, y + _, cor, win)
+        # 3 - 7
+        for _ in range(3, 8):
+            ponto(x + 2, y + _, cor, win)
+        # 4 - 6
+        for _ in range(4, 7):
+            ponto(x + 3, y + _, cor, win)
+        # printar 3 vezes o 1
+        for _ in range(3, 4):
+            ponto(x + 4, y + _, cor, win)

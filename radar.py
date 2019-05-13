@@ -6,6 +6,7 @@ from time import sleep
 
 
 def main():
+
     #aviao.reta()
     # Configurando Window
     win = GraphWin("", 1000, 1000)
@@ -14,6 +15,7 @@ def main():
     # Desenhando  linhas e circulos
     desenhar_linhas(win)
     desenhar_circulo(win)
+    move_ponto(-400,,"red",win)
     win.getMouse()
     win.close()
     #Vinicius - chamadas dos aviões
