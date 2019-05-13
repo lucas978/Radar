@@ -1,5 +1,6 @@
 from graphics import *
 from time import sleep
+from primitivas import *
 
 
 class aviao:
