@@ -1,8 +1,6 @@
 #!/usr/bin/env Python
 # unicode: utf-8
 from graphics import *
-from time import sleep
-
 #from aviao import aviao#nome da classe
 def ponto(x, y, color, win):
     pt = Point(x, y)
@@ -10,28 +8,10 @@ def ponto(x, y, color, win):
     pt.draw(win)
 
 #EM TESTE, Verificar como funciona a função pt.move() no codigo fonte da biblioteca graphics
-def move_ponto(x,x2,y,y2,cor,win):
-    pt = Point(x,y)
-    pt.setOutline(cor)
-    pt.draw(win)
-    sleep(1)
-    pt.move(x2,y2)
+
  # https://github.com/kidGodzilla/graphics.py/blob/master/graphics.py
 #testar movimento do ponto
-'''
-def move_ponto(x, y, x_final, y_final, cor, win):
-    pontos = []
-    for x in [-1,1]:
-        for y in [1,-1]:
-            pt = Point(x,y)
-            pt.draw(win)
-            pt.setOutline(cor)
-            pontos.append(pt)
-    for _ in range(x, x_final):
-        for pt in pontos:
-            pt.move(x, y)
-            sleep(0.025)
-'''
+
 def animacao(win):
     points = []
     # padrao  x -> [-1, 1]
@@ -163,67 +143,3 @@ def desenhar_circulo(win):
     circulo(0, 200, 199, color_rgb(0, 128, 0), win)
     circulo(0, 330, 329, color_rgb(0, 128, 0), win)
 
-    ''' Comentado por Vinicius 11/05/19
-    def aviao(win):
-        # Criar outro metodo de Ponto() para passar parametros
-        # P/ os pontos se moverem!!!
-        # 9
-        ponto(300, 301, "red", win)
-        ponto(300, 302, "red", win)
-        ponto(300, 303, "red", win)
-        ponto(300, 304, "red", win)
-        ponto(300, 305, "red", win)
-        ponto(300, 306, "red", win)
-        ponto(300, 307, "red", win)
-        ponto(300, 308, "red", win)
-        ponto(300, 309, "red", win)
-        # 7
-        ponto(301, 302, "red", win)
-        ponto(301, 303, "red", win)
-        ponto(301, 304, "red", win)
-        ponto(301, 305, "red", win)
-        ponto(301, 306, "red", win)
-        ponto(301, 307, "red", win)
-        ponto(301, 308, "red", win)
-        # 5
-        ponto(302, 303, "red", win)
-        ponto(302, 304, "red", win)
-        ponto(302, 305, "red", win)
-        ponto(302, 306, "red", win)
-        ponto(302, 307, "red", win)
-        # 3
-        ponto(303, 304, "red", win)
-        ponto(303, 305, "red", win)
-        ponto(303, 306, "red", win)
-        # 1
-        ponto(304, 305, "red", win)
-        # 1
-        ponto(304, 305, "red", win)
-        # 1
-        ponto(304, 305, "red", win)
-        ponto(304, 305, "red", win)
-        ponto(304, 305, "red", win)
-        ponto(304, 305, "red", win)
-        ponto(304, 305, "red", win)
-        ponto(304, 305, "red", win)
-        ponto(304, 305, "red", win)
-        ponto(304, 305, "red", win)
-        ponto(304, 305, "red", win)
-    '''
-
-    def aviao(x, y, cor, win):
-        # 1 - 9
-        for _ in range(1, 10):
-            ponto(x, y + _, cor, win)
-        # 2 - 8
-        for _ in range(2, 9):
-            ponto(x + 1 + 1, y + _, cor, win)
-        # 3 - 7
-        for _ in range(3, 8):
-            ponto(x + 2, y + _, cor, win)
-        # 4 - 6
-        for _ in range(4, 7):
-            ponto(x + 3, y + _, cor, win)
-        # printar 3 vezes o 1
-        for _ in range(3, 4):
-            ponto(x + 4, y + _, cor, win)
