@@ -3,7 +3,8 @@
 from graphics import *
 from aviao import *
 from primitivas import *
-
+import math
+from graphics import *
 
 def main():
 
@@ -20,6 +21,45 @@ def main():
 
     #Vinicius - Teste para mover o avião. Favor não mexer.
     #Masashi - Mover o win.getMouse(), win.close() para depois deste método!
+
+
+    ''' Vinicius - Rotação'''
+    x = 50
+    y = 0
+
+    pt = Point(x, y)
+    pt.setOutline("red")
+    pt.draw(win)
+
+
+    x1 = x*math.cos(math.radians(90)) - y*math.sin(math.radians(90))
+    y1 = y*math.cos(math.radians(90)) + x*math.sin(math.radians(90))
+
+    '''
+    x2 = x*math.cos(math.radians(180)) - y*math.sin(math.radians(180))
+    y2 = y*math.cos(math.radians(180)) + x*math.sin(math.radians(180))
+
+
+    x3 = x*math.cos(math.radians(270)) - y*math.sin(math.radians(270))
+    y3 = y*math.cos(math.radians(270)) + x*math.sin(math.radians(270))
+
+    pt1 = Point(x1, y1)
+    pt1.setOutline("yellow")
+    pt1.draw(win)
+
+    pt2 = Point(x2, y2)
+    pt2.setOutline("pink")
+    pt2.draw(win)
+
+    pt3 = Point(x3, y3)
+    pt3.setOutline("brown")
+    pt3.draw(win)
+    
+    '''
+    reta(0,x,0,y,win,"blue")
+    reta(0,x1,0,y1,win,"red")
+    
+    ''''''
 
     '''
     v = True
