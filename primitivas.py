@@ -1,16 +1,23 @@
 #!/usr/bin/env Python
 # unicode: utf-8
 from graphics import *
-#from aviao import aviao#nome da classe
+
+'''
+Nome: Ponto 
+Função: O método irá desenhar um ponto de uma determinada cor na tela.
+x: Posição X do Ponto
+y: Posição Y do Ponto
+color: Cor do Ponto
+win: Janela(Radar) passada para o metodo desenhar nela(win).
+'''
 def ponto(x, y, color, win):
-    pt = Point(x, y)
-    pt.setOutline(color)
-    pt.draw(win)
+    pt = Point(x, y) # Definir Ponto com as coordenadas passadas
+    pt.setOutline(color) # Definir Cor do Ponto com o parametro passado
+    pt.draw(win) # Metodo para desenhar o ponto na tela passada!
 
-#EM TESTE, Verificar como funciona a função pt.move() no codigo fonte da biblioteca graphics
 
- # https://github.com/kidGodzilla/graphics.py/blob/master/graphics.py
-#testar movimento do ponto
+'''
+METODO NAO SERÁ MAIS UTILIZADO!
 
 def animacao(win):
     points = []
@@ -29,10 +36,19 @@ def animacao(win):
         for pt in points:
             pt.move(x, y)
             sleep(0.025)
+'''
 
 
-
-# reta octeto bressham
+'''
+RETA
+Função: Desenhar uma reta nos 8 octetos utilizando o algortimo de Bresshan
+x1: Coordenada X do ponto inicial
+x2: Coordenada X do ponto final
+y1: Coordenada Y do ponto Inicial
+y2: Coordenada Y do ponto final
+window: Janela passada como parametro para desenhar a reta nela(window)
+cor: Cor utilizada!
+'''
 def reta(x1, x2, y1, y2, window, cor):
     x = x1
     y = y1
@@ -75,7 +91,12 @@ def reta(x1, x2, y1, y2, window, cor):
         pt.setOutline(cor)
         pt.draw(window)
 
-
+'''
+PLOTAGEM CIRCULO 
+Função: Metodo utilizado para desenhar o circulo utilizando pontos
+x: coordenada para desenhar o ponto
+y: coordenada para desenhar o ponto
+'''
 def plotagem_circulo(x, y, color, win):
     ponto(x, y, color, win)
     ponto(y, x, color, win)
@@ -86,7 +107,15 @@ def plotagem_circulo(x, y, color, win):
     ponto(-y, x, color, win)
     ponto(x, -y, color, win)
 
-
+'''
+CIRCULO
+Função: Algortimo utilizado para desenhar o circulo
+x: Coordenada x para desenhar no ponto
+y: Coordenada y para desenhar no ponto
+p: Variavel utilizado para definir a curvatura
+cor
+win: janela utilizada para desenhar o circulo
+'''
 def circulo(x, y, p, color, win):
     plotagem_circulo(x, y, color, win)
     while x < y:
@@ -98,7 +127,12 @@ def circulo(x, y, p, color, win):
             p = p + (2 * x) + 1 - (2 * y)
         plotagem_circulo(x, y, color, win)
 
-
+'''
+TRIANGULO ISCOSCELES
+Função: Desenhar o formato do avião na tela
+x: Coordenada utilizada para desenhar o avião utilizando o metodo de RETA
+y: Coordenada utilizada para desenhar o avião utilizando o metodo de RETA
+'''
 def triangulo_isosceles(x, y, cor, win):
     tamanho = 10
 
@@ -109,6 +143,8 @@ def triangulo_isosceles(x, y, cor, win):
 
 
 '''
+METODO NÃO SERÁ MAIS UTILIZADO
+
 def move(win):
 # PODE SER USADA PARA O PREENCHIMENTO!!
 # ta funcionando a animacao, no entanto,  ele vai deixando um rasto
@@ -125,7 +161,10 @@ def move(win):
 		sleep(0.025)	
 '''
 
-
+'''
+DESENHAR LINHAS
+Função: Metodo utilizado para Desenhar as Linhas para formar o Radar utilizando o metodo RETA
+'''
 def desenhar_linhas(win):
     # vertical
     reta(0, 0, -500, 500, win, "green")
@@ -136,7 +175,10 @@ def desenhar_linhas(win):
     # diagonal(direita | esquerda)
     reta(500, -500, -500, 500, win, "green")
 
-
+'''
+DESENHAR CIRCULO
+Função: Metodo utilizado para desenhar os circulos na tela e formar o Radar utilizando o metodo CIRCULO e PLOTAGEM CIRCULO
+'''
 def desenhar_circulo(win):
     circulo(0, 450, 449, color_rgb(0, 128, 0), win)
     circulo(0, 50, 49, color_rgb(0, 128, 0), win)

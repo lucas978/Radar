@@ -6,6 +6,10 @@ from primitivas import *
 import math
 from graphics import *
 
+'''
+MAIN
+Metodo utilizado para criar a janela, setando as coordenadas, cor de fundo e o tamanho da tela
+'''
 def main():
 
     #aviao.reta()
