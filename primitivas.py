@@ -133,6 +133,7 @@ Função: Desenhar o formato do avião na tela
 x: Coordenada utilizada para desenhar o avião utilizando o metodo de RETA
 y: Coordenada utilizada para desenhar o avião utilizando o metodo de RETA
 '''
+
 def triangulo_isosceles(x, y, cor, win):
     tamanho = 10
 
@@ -174,6 +175,10 @@ def desenhar_linhas(win):
     reta(-500, 500, -500, 500, win, "green")
     # diagonal(direita | esquerda)
     reta(500, -500, -500, 500, win, "green")
+    #Pista
+    reta(-50, 50, -20, 20, win, "white")
+
+
 
 '''
 DESENHAR CIRCULO
@@ -181,7 +186,7 @@ Função: Metodo utilizado para desenhar os circulos na tela e formar o Radar ut
 '''
 def desenhar_circulo(win):
     circulo(0, 450, 449, color_rgb(0, 128, 0), win)
-    circulo(0, 50, 49, color_rgb(0, 128, 0), win)
+    circulo(0, 100, 99, color_rgb(0, 128, 0), win)
     circulo(0, 200, 199, color_rgb(0, 128, 0), win)
     circulo(0, 330, 329, color_rgb(0, 128, 0), win)
 
