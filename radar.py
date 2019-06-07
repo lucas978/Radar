@@ -4,7 +4,6 @@ from graphics import *
 from aviao import *
 from primitivas import *
 import math
-from graphics import *
 
 
 def rotacao(ang,win):
@@ -70,10 +69,17 @@ def main():
 
 
 
+<<<<<<< HEAD
         ''' Vinicius - Rotação
         x = 50
         y = 0
+=======
+>>>>>>> ede044d4098a8526533a7c8faaf6b9f7003f8226
 
+        ''' Vinicius - Rotação'''
+        #x = 50
+        #y = 0
+        '''
         pt = Point(x, y)
         pt.setOutline("red")
         pt.draw(win)
@@ -84,8 +90,18 @@ def main():
 
 
 
+<<<<<<< HEAD
+=======
+        reta(0,x,0,y,win,"blue")
+        reta(0,x1,0,y1,win,"red")
+        '''
 
-        ''''''
+        #x1 = x * math.cos(math.radians(90)) - y * math.sin(math.radians(90))
+        #y1 = y * math.cos(math.radians(90)) + x * math.sin(math.radians(90))
+        #triangulo
+
+>>>>>>> ede044d4098a8526533a7c8faaf6b9f7003f8226
+
 
         '''
         v = True

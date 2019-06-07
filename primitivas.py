@@ -133,6 +133,7 @@ Função: Desenhar o formato do avião na tela
 x: Coordenada utilizada para desenhar o avião utilizando o metodo de RETA
 y: Coordenada utilizada para desenhar o avião utilizando o metodo de RETA
 '''
+
 def triangulo_isosceles(x, y, cor, win):
     tamanho = 10
 
@@ -174,8 +175,15 @@ def desenhar_linhas(win):
     reta(-500, 500, -500, 500, win, "green")
     # diagonal(direita | esquerda)
     reta(500, -500, -500, 500, win, "green")
+<<<<<<< HEAD
     # pista de voo
     #reta(-50,50,-25,25,win,"red")
+=======
+    #Pista
+    reta(-50, 50, -20, 20, win, "white")
+
+
+>>>>>>> ede044d4098a8526533a7c8faaf6b9f7003f8226
 
 '''
 DESENHAR CIRCULO
