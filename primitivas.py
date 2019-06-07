@@ -174,6 +174,8 @@ def desenhar_linhas(win):
     reta(-500, 500, -500, 500, win, "green")
     # diagonal(direita | esquerda)
     reta(500, -500, -500, 500, win, "green")
+    # pista de voo
+    #reta(-50,50,-25,25,win,"red")
 
 '''
 DESENHAR CIRCULO
@@ -181,7 +183,7 @@ Função: Metodo utilizado para desenhar os circulos na tela e formar o Radar ut
 '''
 def desenhar_circulo(win):
     circulo(0, 450, 449, color_rgb(0, 128, 0), win)
-    circulo(0, 50, 49, color_rgb(0, 128, 0), win)
+    circulo(0, 100, 99, color_rgb(0, 128, 0), win)
     circulo(0, 200, 199, color_rgb(0, 128, 0), win)
     circulo(0, 330, 329, color_rgb(0, 128, 0), win)
 
