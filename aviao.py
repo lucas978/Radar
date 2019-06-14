@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from graphics import *
 from time import sleep
 from primitivas import *

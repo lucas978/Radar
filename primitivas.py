@@ -1,5 +1,5 @@
 #!/usr/bin/env Python
-# unicode: utf-8
+# -*- coding: utf-8 -*-
 from graphics import *
 
 '''
@@ -143,9 +143,8 @@ def triangulo_isosceles(x, y, cor, win):
     reta(x, x+tamanho, y, y+7.5, win, cor)
 
 
+#METODO NÃO SERÁ MAIS UTILIZADO
 '''
-METODO NÃO SERÁ MAIS UTILIZADO
-
 def move(win):
 # PODE SER USADA PARA O PREENCHIMENTO!!
 # ta funcionando a animacao, no entanto,  ele vai deixando um rasto
@@ -175,15 +174,11 @@ def desenhar_linhas(win):
     reta(-500, 500, -500, 500, win, "green")
     # diagonal(direita | esquerda)
     reta(500, -500, -500, 500, win, "green")
-<<<<<<< HEAD
     # pista de voo
     #reta(-50,50,-25,25,win,"red")
-=======
     #Pista
-    reta(-50, 50, -20, 20, win, "white")
+    #reta(-50, 50, -20, 20, win, "white")
 
-
->>>>>>> ede044d4098a8526533a7c8faaf6b9f7003f8226
 
 '''
 DESENHAR CIRCULO
