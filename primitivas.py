@@ -1,6 +1,7 @@
 #!/usr/bin/env Python
 # -*- coding: utf-8 -*-
 from graphics import *
+import math
 
 '''
 Nome: Ponto 
@@ -134,13 +135,41 @@ x: Coordenada utilizada para desenhar o avião utilizando o metodo de RETA
 y: Coordenada utilizada para desenhar o avião utilizando o metodo de RETA
 '''
 
-def triangulo_isosceles(x, y, cor, win):
-    tamanho = 10
+def triangulo_isosceles(x1, y1, x2, y2, x3, y3, cor, win):
+    
+    reta(x1, x2, y1, y2, win, cor)
+    reta(x1, x3, y1, y3, win, cor)
+    reta(x2, x3, y2, y3, win, cor)
 
-    reta(x, x+tamanho, y, y, win, cor)
-    reta(x+tamanho, x+tamanho, y-7.5, y+7.5, win, cor)
-    reta(x, x+tamanho, y, y-7.5, win, cor)
-    reta(x, x+tamanho, y, y+7.5, win, cor)
+
+def posicao(x,y, angulo, status, win):
+    ox1 = x 
+    oy1 = y
+    ox2 = x + 10
+    oy2 = y - 7.5
+    ox3 = x + 10
+    oy3 = y + 7.5
+
+    rot1 = rotacao(ox1,oy1,angulo)
+    rot2 = rotacao(ox2,oy2,angulo)
+    rot3 = rotacao(ox3,oy3,angulo)
+
+    x1 = rot1[0]
+    y1 = rot1[1]
+    x2 = rot2[0]
+    y2 = rot2[1]
+    x3 = rot3[0]
+    y3 = rot3[1]
+
+    triangulo_isosceles(x1,y1,x2,y2,x3,y3,"blue",win)
+
+
+def rotacao(x, y, angulo):
+
+    x1 = x * math.cos(math.radians(angulo)) - y * math.sin(math.radians(angulo))   
+    y1 = y * math.cos(math.radians(angulo)) + x * math.sin(math.radians(angulo))
+
+    return (x1,y1)
 
 
 #METODO NÃO SERÁ MAIS UTILIZADO
@@ -189,4 +218,3 @@ def desenhar_circulo(win):
     circulo(0, 100, 99, color_rgb(0, 128, 0), win)
     circulo(0, 200, 199, color_rgb(0, 128, 0), win)
     circulo(0, 330, 329, color_rgb(0, 128, 0), win)
-

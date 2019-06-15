@@ -113,7 +113,13 @@ def main():
                 triangulo_isosceles(10 + i, 100, "black", win)
             time.sleep(0.0000000000000000001)
         '''
-
+        #posicao(100,200,45,0,win)
+        #posicao(100,0,45,0,win)
+        posicao(100,0,90,0,win)
+        #posicao(100,0,135,0,win)
+        posicao(100,0,180,0,win)
+        #posicao(100,0,225,0,win)
+        posicao(100,0,270,0,win)
         #triangulo_isosceles(100, 200, "blue", win)
         #triangulo_isosceles(400, 300, "blue", win)
         #triangulo_isosceles(300, 250, "blue", win)
