@@ -4,6 +4,7 @@ from graphics import *
 from aviao import *
 from primitivas import *
 import math
+from planilha import *
 
 ''' Masashi: Rotação Metodo!
 
@@ -115,14 +116,21 @@ def main():
         '''
         #posicao(100,200,45,0,win)
         #posicao(100,0,45,0,win)
-        posicao(100,0,90,0,win)
+        #posicao(100,0,90,0,win)
         #posicao(100,0,135,0,win)
-        posicao(100,0,180,0,win)
+        #posicao(100,0,180,0,win)
         #posicao(100,0,225,0,win)
-        posicao(100,0,270,0,win)
+        #posicao(100,0,270,0,win)
         #triangulo_isosceles(100, 200, "blue", win)
         #triangulo_isosceles(400, 300, "blue", win)
         #triangulo_isosceles(300, 250, "blue", win)
+        
+        '''
+        Victor Masashi -> Pegando os dados da planilha como uma lista e inserindo em X
+        x = getLA2203()
+        print(x)
+
+        '''
         win.getMouse()
         win.close()
         # Fechando Janela/Radar
