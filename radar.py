@@ -4,7 +4,8 @@ from graphics import *
 from aviao import *
 from primitivas import *
 import math
-from planilha import *
+#from planilha import *
+from time import *
 
 ''' Masashi: Rotação Metodo!
 
@@ -50,87 +51,115 @@ def rotacao(ang,win):
         pt.draw(win)
         triangulo_isosceles(70,-71,"green",win)
 '''
+
 '''
 MAIN
 Metodo utilizado para criar a janela, setando as coordenadas, cor de fundo e o tamanho da tela
 '''
+def direita(ponto, win):
+    #pt = Point(x,y)
+    pt = Point(ponto.getX(), ponto.getY())
+    pt.setOutline("black")
+    pt.draw(win)
+        
+    for x in [0,1]:
+        for y in [0,0]:
+            #pt = Point(50,50)
+            #pt.draw(win)
+            pt.setOutline("red")
+
+        
+        for _ in range(250):
+            #x += 1
+            #y += 0
+            pt.move(x, y)
+            sleep(0.025)
+
+    pt.setOutline("black")
+    return (pt)
+
+def cima(ponto, win):
+
+    #pt = Point(x,y)
+    pt = Point(ponto.getX(), ponto.getY())
+    pt.setOutline("black")
+    pt.draw(win)
+        
+    for x in [0,0]:
+        for y in [0,1]:
+            #pt = Point(50,50)
+            #pt.draw(win)
+            pt.setOutline("red")
+
+        
+        for _ in range(250):
+            #x += 1
+            #y += 0
+            pt.move(x, y)
+            sleep(0.025)
+
+    return (pt)
+
+def aviao(x,y,cor,win):
+    reta(x, x-10, y, y+10, win, cor)
+    reta(x, x-10, y, y-10, win, cor)
+    reta(x-10, x-10, y+10, y-10, win, cor)
+
+    '''
+    reta(x1, x2, y1, y2, win, cor)
+    reta(x1, x3, y1, y3, win, cor)
+    reta(x2, x3, y2, y3, win, cor)
+
+    '''
+def tela(win):
+    desenhar_linhas(win)
+    desenhar_circulo(win)
+
+
 def main():
 
     try:
-        #aviao.reta()
-        # Configurando Window
         win = GraphWin("", 1000, 1000)
         win.setCoords(-500, -500, 500, 500)
         win.setBackground(color_rgb(0, 0, 0))
         # Desenhando  linhas e circulos
-        desenhar_linhas(win)
-        desenhar_circulo(win)
-        
-        '''
-        * Masashi: Rotação
-        rotacao(0,win)
-        rotacao(45,win)
-        rotacao(90, win)
-        rotacao(135, win)
-        rotacao(180, win)
-        rotacao(225, win)
-        rotacao(270, win)
-        rotacao(315, win)
-        '''
+        tela(win)
 
-
-        ''' Vinicius - Rotação
-
-        x = 50
-        y = 0
-        #x = 50
-        #y = 0
-        '''
+        ''' 
+        Mostrar informação acima do avião
+        x = -200
+        y = 200
+        angulo = 45
+        txt = Text(Point(x,y+20), "TESTE")
+        txt.setSize(5)
+        txt.setTextColor("red")
+        txt.draw(win)
+        aviao(x,y,"red",win)
         '''
 
-        #x1 = x*math.cos(math.radians(90)) - y*math.sin(math.radians(90))
-        #y1 = y*math.cos(math.radians(90)) + x*math.sin(math.radians(90))
 
-
-
-        reta(0,x,0,y,win,"blue")
-        reta(0,x1,0,y1,win,"red")
+        '''   
+        # PLOTAGEM DO AVIAO
+        a = 0
+        x = -200
+        y = 200
+        while a <=10:    
+            aviao(x,y,"red",win)
+            x+=70
+            y+=0
+            a+=1
+            sleep(2)
+            win.close()
+            if win.isClosed():
+                win = GraphWin("", 1000, 1000)
+                win.setCoords(-500, -500, 500, 500)
+                win.setBackground(color_rgb(0, 0, 0))
+                # Desenhando  linhas e circulos
+                tela(win)        
         '''
-
-        #x1 = x * math.cos(math.radians(90)) - y * math.sin(math.radians(90))
-        #y1 = y * math.cos(math.radians(90)) + x * math.sin(math.radians(90))
-        #triangulo
+        # FIM DA PLOTAGEM 
 
 
-
-        '''
-        v = True
-        for i in range(0, 100):
-            triangulo_isosceles(10+i, 100, "blue", win)
-            if v:
-                triangulo_isosceles(10 + i, 100, "black", win)
-                v = False
-            else:
-                triangulo_isosceles(10 + i, 100, "black", win)
-            time.sleep(0.0000000000000000001)
-        '''
-        #posicao(100,200,45,0,win)
-        #posicao(100,0,45,0,win)
-        #posicao(100,0,90,0,win)
-        #posicao(100,0,135,0,win)
-        #posicao(100,0,180,0,win)
-        #posicao(100,0,225,0,win)
-        #posicao(100,0,270,0,win)
-        #triangulo_isosceles(100, 200, "blue", win)
-        #triangulo_isosceles(400, 300, "blue", win)
-        #triangulo_isosceles(300, 250, "blue", win)
-        
-        '''
-        Victor Masashi -> Pegando os dados da planilha como uma lista e inserindo em X
-        x = getLA2203()
-        print(x)
-
-        '''
         win.getMouse()
         win.close()
         # Fechando Janela/Radar
