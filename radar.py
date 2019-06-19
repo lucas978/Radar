@@ -1,7 +1,6 @@
 #!/usr/bin/env Python
 # *- coding: utf-8 -*-
 from graphics import *
-from aviao import *
 from primitivas import *
 import math
 from planilha import *

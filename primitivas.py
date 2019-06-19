@@ -123,28 +123,89 @@ def triangulo_isosceles(x,y,cor,win):
 def aviao(aviao_lista, linha, win):
     # aviao_lista: Lista das informacoes do aviao que serão passadas para plotagem
     # Linha: Linha utilizada para resgatar valores do aviao em um determinado tempo
+    F = 20000
+    f = 50
 
     tempo = aviao_lista[linha][0]
     status = aviao_lista[linha][1]
     voo = aviao_lista[linha][2]
     distancia = aviao_lista[linha][3]
     velocidade = aviao_lista[linha][4]
-    x = math.trunc(aviao_lista[linha][5] / 100)
-    y = math.trunc(aviao_lista[linha][6] / 100)
+    x = math.trunc(aviao_lista[linha][5])
+    y = math.trunc(aviao_lista[linha][6])
     z = math.trunc(aviao_lista[linha][7])
 
+    x_p = x * f / (F - z)
+    y_p = y * f / (F - z)
+    
+    x_p = math.trunc(x_p)
+    y_p = math.trunc(y_p)
+
+    print("X Plano Projetivo: ",x_p)
+    print("Y Plano Projetivo: ",y_p)
+
     if status == "D":
-        triangulo_isosceles(x,y,"green2",win)
-        texto = Text(Point(x,y+50),  "{0}\nDist: {1}\nVel: {2}\nX: {3}\nY: {4}\nZ: {5}\n".format(voo,distancia,velocidade,x,y,z))
+        print("Tempo: {0}\nStatus: {1}\nVoo: {2}\nDist: {3}\nVel: {4}\nX: {5}\nY: {6}\nZ: {7}\n\n".format(tempo,status,voo,distancia,velocidade,x,y,z))
+        print("============================================================")
+        triangulo_isosceles(x_p,y_p,"green2",win)
+        texto = Text(Point(x_p,y_p+50),  "{0}\nDist: {1}\nVel: {2}\nX: {3}\nY: {4}\nZ: {5}\n".format(voo,distancia,velocidade,x_p,y_p,z))
         texto.setSize(7)
         texto.setTextColor("green2")
         texto.draw(win)
     if status == "P":
-        triangulo_isosceles(x,y,"yellow",win)
-        texto = Text(Point(x,y+50),  "{0}\nDist: {1}\nVel: {2}\nX: {3}\nY: {4}\nZ: {5}\n".format(voo,distancia,velocidade,x,y,z))
+        print("Tempo: {0}\nStatus: {1}\nVoo: {2}\nDist: {3}\nVel: {4}\nX: {5}\nY: {6}\nZ: {7}\n\n".format(tempo,status,voo,distancia,velocidade,x,y,z))
+        print("============================================================")
+        triangulo_isosceles(x_p,y_p,"yellow",win)
+        texto = Text(Point(x_p,y_p+50),  "{0}\nDist: {1}\nVel: {2}\nX: {3}\nY: {4}\nZ: {5}\n".format(voo,distancia,velocidade,x_p,y_p,z))
         texto.setSize(7)
         texto.setTextColor("yellow")
         texto.draw(win)
+
+    if status == "P" and linha == 0:
+        print("Tempo: {0}\nStatus: {1}\nVoo: {2}\nDist: {3}\nVel: {4}\nX: {5}\nY: {6}\nZ: {7}\n\n".format(tempo,status,voo,distancia,velocidade,x,y,z))
+        print("============================================================")
+        triangulo_isosceles(x_p,y_p,"snow",win)
+        texto = Text(Point(x_p,y_p+50),  "{0}\nDist: {1}\nVel: {2}\nX: {3}\nY: {4}\nZ: {5}\n".format(voo,distancia,velocidade,x_p,y_p,z))
+        texto.setSize(7)
+        texto.setTextColor("snow")
+        texto.draw(win)
+
+    if status == "P" and linha == 1:
+        print("Tempo: {0}\nStatus: {1}\nVoo: {2}\nDist: {3}\nVel: {4}\nX: {5}\nY: {6}\nZ: {7}\n\n".format(tempo,status,voo,distancia,velocidade,x,y,z))
+        print("============================================================")
+        triangulo_isosceles(x_p,y_p,"snow",win)
+        texto = Text(Point(x_p,y_p+50),  "{0}\nDist: {1}\nVel: {2}\nX: {3}\nY: {4}\nZ: {5}\n".format(voo,distancia,velocidade,x_p,y_p,z))
+        texto.setSize(7)
+        texto.setTextColor("snow")
+        texto.draw(win)
+
+    if status == "D" and linha == 13 and voo == "LA 2203":
+        print("Tempo: {0}\nStatus: {1}\nVoo: {2}\nDist: {3}\nVel: {4}\nX: {5}\nY: {6}\nZ: {7}\n\n".format(tempo,status,voo,distancia,velocidade,x,y,z))
+        print("============================================================")
+        triangulo_isosceles(x_p,y_p,"snow",win)
+        texto = Text(Point(x_p,y_p+50),  "{0}\nDist: {1}\nVel: {2}\nX: {3}\nY: {4}\nZ: {5}\n".format(voo,distancia,velocidade,x_p,y_p,z))
+        texto.setSize(7)
+        texto.setTextColor("snow")
+        texto.draw(win)
+
+    if status == "D" and linha == 14:
+        print("Tempo: {0}\nStatus: {1}\nVoo: {2}\nDist: {3}\nVel: {4}\nX: {5}\nY: {6}\nZ: {7}\n\n".format(tempo,status,voo,distancia,velocidade,x,y,z))
+        print("============================================================")
+        triangulo_isosceles(x_p,y_p,"snow",win)
+        texto = Text(Point(x_p,y_p+50),  "{0}\nDist: {1}\nVel: {2}\nX: {3}\nY: {4}\nZ: {5}\n".format(voo,distancia,velocidade,x_p,y_p,z))
+        texto.setSize(7)
+        texto.setTextColor("snow")
+        texto.draw(win)
+
+    if status == "D" and linha == 15:
+        print("Tempo: {0}\nStatus: {1}\nVoo: {2}\nDist: {3}\nVel: {4}\nX: {5}\nY: {6}\nZ: {7}\n\n".format(tempo,status,voo,distancia,velocidade,x,y,z))
+        print("============================================================")
+        triangulo_isosceles(x_p,y_p,"snow",win)
+        texto = Text(Point(x_p,y_p+50),  "{0}\nDist: {1}\nVel: {2}\nX: {3}\nY: {4}\nZ: {5}\n".format(voo,distancia,velocidade,x_p,y_p,z))
+        texto.setSize(7)
+        texto.setTextColor("snow")
+        texto.draw(win)
+
    
 '''
     DESENHAR LINHAS
