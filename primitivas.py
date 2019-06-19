@@ -18,29 +18,6 @@ def ponto(x, y, color, win):
 
 
 '''
-METODO NAO SERÁ MAIS UTILIZADO!
-
-def animacao(win):
-    points = []
-    # padrao  x -> [-1, 1]
-    # padrao  y -> [-1, 1]
-    # padrao desce!
-    # se inverter o padrao, a bolinha sobe na direcao oposta
-    for x in [-5, 5]:
-        for y in [-5, 5]:
-            pt = Point(250, 250)
-            pt.draw(win)
-            pt.setOutline("red")
-            points.append(pt)
-
-    for _ in range(250):
-        for pt in points:
-            pt.move(x, y)
-            sleep(0.025)
-'''
-
-
-'''
 RETA
 Função: Desenhar uma reta nos 8 octetos utilizando o algortimo de Bresshan
 x1: Coordenada X do ponto inicial
@@ -134,66 +111,46 @@ Função: Desenhar o formato do avião na tela
 x: Coordenada utilizada para desenhar o avião utilizando o metodo de RETA
 y: Coordenada utilizada para desenhar o avião utilizando o metodo de RETA
 '''
-
-def triangulo_isosceles(x1, y1, x2, y2, x3, y3, cor, win):
-    
-    reta(x1, x2, y1, y2, win, cor)
-    reta(x1, x3, y1, y3, win, cor)
-    reta(x2, x3, y2, y3, win, cor)
-
-
-def posicao(x,y, angulo, status, win):
-    ox1 = x 
-    oy1 = y
-    ox2 = x + 10
-    oy2 = y - 7.5
-    ox3 = x + 10
-    oy3 = y + 7.5
-
-    rot1 = rotacao(ox1,oy1,angulo)
-    rot2 = rotacao(ox2,oy2,angulo)
-    rot3 = rotacao(ox3,oy3,angulo)
-
-    x1 = rot1[0]
-    y1 = rot1[1]
-    x2 = rot2[0]
-    y2 = rot2[1]
-    x3 = rot3[0]
-    y3 = rot3[1]
-
-    triangulo_isosceles(x1,y1,x2,y2,x3,y3,"blue",win)
+def triangulo_isosceles(x,y,cor,win):
+    # Aviao sera desenhado direcionado à direita
+    reta(x, x-10, y, y+10, win, cor)
+    reta(x, x-10, y, y-10, win, cor)
+    reta(x-10, x-10, y+10, y-10, win, cor)
 
 
-def rotacao(x, y, angulo):
+  
 
-    x1 = x * math.cos(math.radians(angulo)) - y * math.sin(math.radians(angulo))   
-    y1 = y * math.cos(math.radians(angulo)) + x * math.sin(math.radians(angulo))
+def aviao(aviao_lista, linha, win):
+    # aviao_lista: Lista das informacoes do aviao que serão passadas para plotagem
+    # Linha: Linha utilizada para resgatar valores do aviao em um determinado tempo
 
-    return (x1,y1)
+    tempo = aviao_lista[linha][0]
+    status = aviao_lista[linha][1]
+    voo = aviao_lista[linha][2]
+    distancia = aviao_lista[linha][3]
+    velocidade = aviao_lista[linha][4]
+    x = math.trunc(aviao_lista[linha][5] / 100)
+    y = math.trunc(aviao_lista[linha][6] / 100)
+    z = math.trunc(aviao_lista[linha][7])
 
-
-#METODO NÃO SERÁ MAIS UTILIZADO
+    if status == "D":
+        triangulo_isosceles(x,y,"green2",win)
+        texto = Text(Point(x,y+50),  "{0}\nDist: {1}\nVel: {2}\nX: {3}\nY: {4}\nZ: {5}\n".format(voo,distancia,velocidade,x,y,z))
+        texto.setSize(7)
+        texto.setTextColor("green2")
+        texto.draw(win)
+    if status == "P":
+        triangulo_isosceles(x,y,"yellow",win)
+        texto = Text(Point(x,y+50),  "{0}\nDist: {1}\nVel: {2}\nX: {3}\nY: {4}\nZ: {5}\n".format(voo,distancia,velocidade,x,y,z))
+        texto.setSize(7)
+        texto.setTextColor("yellow")
+        texto.draw(win)
+   
 '''
-def move(win):
-# PODE SER USADA PARA O PREENCHIMENTO!!
-# ta funcionando a animacao, no entanto,  ele vai deixando um rasto
-# o rastro que ele deixa deve ser apagado!!!
-	x = 250
-	y = 250
-	for _ in range(250):
-		# o ponto se movimenta, porem, o ponto "apagado" tem que
-		# ser da mesma cor que o fundo da tela!!!!!
-		win.plot(x,y,"white")
-		x += 1
-		y += 1
-		win.plot(x, y, "blue")
-		sleep(0.025)	
+    DESENHAR LINHAS
+    Função: Metodo utilizado para Desenhar as Linhas para formar o Radar utilizando o metodo RETA
 '''
 
-'''
-DESENHAR LINHAS
-Função: Metodo utilizado para Desenhar as Linhas para formar o Radar utilizando o metodo RETA
-'''
 def desenhar_linhas(win):
     # vertical
     reta(0, 0, -500, 500, win, "green")
